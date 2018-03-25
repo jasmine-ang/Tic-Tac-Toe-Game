@@ -22,6 +22,19 @@ public class Board {
 
     /** Returns true if the game is a draw, aka if there aren't any more empty cells */
     public boolean isDraw() {
+        int count = 0; 
+        for (int i = 0; i < cells.length; i++)
+        {
+            if (cells[i].isEmpty())
+            {
+                count ++; 
+            }
+        }
+        if (count == 0)
+        {
+            return true;
+        }
+
         // TODO: Check every cell in the cells array
         // Return false if any of the cells is empty, otherwise return true if all the cells are filled
         return false;
@@ -31,6 +44,41 @@ public class Board {
     // This means we need to check all possible combinations of winning
     // If any of them is true, return true
     public boolean hasWon(Player p) {
+
+        if (cells[0].player == p && cells[1].player == p && cells[2].player == p)
+        {
+            return true; 
+        }
+        else if (cells[3].player == p && cells[4].player == p && cells[5].player == p)
+        {
+            return true; 
+        }
+        else if (cells[6].player == p && cells[7].player == p && cells[8].player == p)
+        {
+            return true; 
+        }
+        else if (cells[0].player == p && cells[3].player == p && cells[6].player == p)
+        {
+            return true; 
+        }
+        else if (cells[1].player == p && cells[4].player == p && cells[7].player == p)
+        {
+            return true; 
+        }
+        else if (cells[2].player == p && cells[5].player == p && cells[8].player == p)
+        {
+            return true; 
+        }
+        else if (cells[0].player == p && cells[4].player == p && cells[8].player == p)
+        {
+            return true; 
+        }
+        else if (cells[2].player == p && cells[4].player == p && cells[6].player == p)
+        {
+            return true; 
+        }
+
+
         return false;
     }   
 

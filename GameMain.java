@@ -18,8 +18,12 @@ public class GameMain {
         currentPlayer = Player.PlayerX;       // CROSS plays first
         while(!board.isDraw()) {
             // 1. While we are playing the game, first we want to print the current state of the board
+                board.printBoard(); 
+            
             // 2. We want to print out whose turn it is (the current player)
+                printCurrentPlayer(currentPlayer);
             // 3. We want the current player to make a move
+                playerMove(currentPlayer); 
 
             if (board.hasWon(currentPlayer)) { 
                 board.printBoard();
@@ -30,6 +34,7 @@ public class GameMain {
                 return;
             }
             // 4. We want to switch the current player to the next player.
+            currentPlayer = switchPlayer(currentPlayer);
         }
         board.printBoard();
         System.out.println("Game over.");
@@ -67,7 +72,14 @@ public class GameMain {
     // TODO: If it is player X's turn, we should print that out
     // If it is player O's turn, we should print that out instead.
     public void printCurrentPlayer(Player p) {
-       
+        if (p == Player.PlayerX)
+        {
+            System.out.println ("It is player X's turn");
+        }
+        else 
+        {
+            System.out.println ("It is player Y's turn");
+        }
     }
 
     public static void main(String[] args) {
